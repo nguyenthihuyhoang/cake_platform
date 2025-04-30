@@ -1,3 +1,5 @@
+import 'package:provider/provider.dart';
+import 'package:cake_platform/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 
@@ -130,6 +132,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                       onPressed: () {
                         // TODO: Thêm vào giỏ hàng
+                        Provider.of<CartProvider>(context, listen: false).addToCart(product);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Đã thêm vào giỏ hàng!')),
                         );
