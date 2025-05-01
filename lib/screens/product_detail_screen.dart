@@ -100,10 +100,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       Text('Số lượng:', style: TextStyle(fontSize: 16)),
                       IconButton(
                         icon: Icon(Icons.remove),
-                        onPressed:
-                            quantity > 1
-                                ? () => setState(() => quantity--)
-                                : null,
+                        onPressed: quantity > 1
+                            ? () => setState(() => quantity--)
+                            : null,
                       ),
                       Text(
                         '$quantity',
@@ -132,7 +131,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                       onPressed: () {
                         // TODO: Thêm vào giỏ hàng
-                        Provider.of<CartProvider>(context, listen: false).addToCart(product);
+                        Provider.of<CartProvider>(context, listen: false)
+                            .addToCart(product, quantity: quantity);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Đã thêm vào giỏ hàng!')),
                         );
